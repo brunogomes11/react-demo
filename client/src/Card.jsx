@@ -5,8 +5,13 @@ export default function Card() {
     const [card1, setCard1] = useState(null);
     const [card2, setCard2] = useState(null);
 
+    const apiBaseUrl =
+        process.env.NODE_ENV === "production"
+            ? "https://cards-ilnp.onrender.com/"
+            : "http://localhost:10000";
+
     const fetchHand = () => {
-        axios("http://localhost:10000/api/hand")
+        axios(`${apiBaseUrl}/api/hand`)
             .then((response) => {
                 setCard1(response.data.cards[0]);
                 setCard2(response.data.cards[1]);

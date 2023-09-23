@@ -5,7 +5,15 @@ const app = express();
 const PORT = 10000;
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+    origin:
+        process.env.NODE_ENV === "production"
+            ? "https://cards-ilnp.onrender.com"
+            : "http://localhost:3000",
+    optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 const cards = [
     "A",
