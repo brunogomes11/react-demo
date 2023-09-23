@@ -7,7 +7,7 @@ export default function Card() {
 
     const apiBaseUrl =
         process.env.NODE_ENV === "production"
-            ? "https://cards-ilnp.onrender.com/"
+            ? "https://cards-ilnp.onrender.com"
             : "http://localhost:10000";
 
     const fetchHand = () => {
