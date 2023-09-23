@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { PokerCard } from "react-playing-cards";
 
 export default function Card() {
     const [card1, setCard1] = useState(null);
@@ -21,22 +20,14 @@ export default function Card() {
         <div>
             <button onClick={fetchHand}>Draw Hand</button>
             {card1 && (
-                <PokerCard
-                    back={!card1}
-                    front={
-                        card1 &&
-                        `${card1.card}${card1.suit.charAt(0).toUpperCase()}`
-                    }
-                />
+                <p>
+                    Card 1: {card1.card} of {card1.suit}
+                </p>
             )}
             {card2 && (
-                <PokerCard
-                    back={!card2}
-                    front={
-                        card2 &&
-                        `${card2.card}${card2.suit.charAt(0).toUpperCase()}`
-                    }
-                />
+                <p>
+                    Card 2: {card2.card} of {card2.suit}
+                </p>
             )}
         </div>
     );
