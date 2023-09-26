@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "./Card";
+import { Grid } from "@mui/material";
 export default function App() {
     return (
-        <div>
-            <h1>Card Drawer</h1>
+        <Grid backgroundColor="black">
             <Card />
-        </div>
+        </Grid>
     );
 }
