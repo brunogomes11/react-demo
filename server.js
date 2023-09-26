@@ -2,9 +2,10 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const PORT = 10000;
+const PORT = 9000;
 
 app.use(express.json());
+
 const corsOptions = {
     origin:
         process.env.NODE_ENV === "production"

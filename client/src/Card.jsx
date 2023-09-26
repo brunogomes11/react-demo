@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 export default function Card() {
@@ -8,7 +8,7 @@ export default function Card() {
     const apiBaseUrl =
         process.env.NODE_ENV === "production"
             ? "https://cards-ilnp.onrender.com"
-            : "http://localhost:10000";
+            : "http://localhost:9000";
 
     const fetchHand = () => {
         axios(`${apiBaseUrl}/api/hand`)
@@ -25,14 +25,22 @@ export default function Card() {
         <div>
             <button onClick={fetchHand}>Draw Hand</button>
             {card1 && (
-                <p>
-                    Card 1: {card1.card} of {card1.suit}
-                </p>
+                <div>
+                    <p>Card 1:</p>
+                    <img
+                        src={`/cards/${card1.card}${card1.suit[0]}.svg`}
+                        alt=""
+                    />
+                </div>
             )}
             {card2 && (
-                <p>
-                    Card 2: {card2.card} of {card2.suit}
-                </p>
+                <div>
+                    <p>Card 2:</p>
+                    <img
+                        src={`/cards/${card2.card}${card2.suit[0]}.svg`}
+                        alt=""
+                    />
+                </div>
             )}
         </div>
     );
